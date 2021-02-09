@@ -1,0 +1,221 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Boojbook API Documentation",
+        "description": "To help you get started with our API and learn the details, we've provided a way for you to make test calls. Just click the button labeled 'Authorize' below, enter your API key (Bearer Ni9aGNKNdYHUHJw4tSYIPQGWSXkAcbBO5IKr8R6), click save and then test the endpoints below.",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/book": {
+            "get": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Get list of books",
+                "description": "Returns list of books",
+                "operationId": "getBookList",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Save book details",
+                "description": "",
+                "operationId": "storeBook",
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Book title",
+                        "required": true,
+                        "example": "Harry Potter"
+                    },
+                    {
+                        "name": "author",
+                        "in": "query",
+                        "description": "Author of the book",
+                        "required": true,
+                        "example": "J.K. Rowling"
+                    },
+                    {
+                        "name": "date_publish",
+                        "in": "query",
+                        "description": "Date the book publish (yyyy-mm-dd)",
+                        "required": true,
+                        "example": "1991-02-25"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/book/{id}": {
+            "put": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Update book details",
+                "description": "",
+                "operationId": "updateBook",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Book title",
+                        "required": true,
+                        "example": "Harry Potter"
+                    },
+                    {
+                        "name": "author",
+                        "in": "query",
+                        "description": "Author of the book",
+                        "required": true,
+                        "example": "J.K. Rowling"
+                    },
+                    {
+                        "name": "date_publish",
+                        "in": "query",
+                        "description": "Date the book publish (yyyy-mm-dd)",
+                        "required": true,
+                        "example": "1991-02-25"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Delete book",
+                "description": "",
+                "operationId": "deleteBook",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearer_token": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
