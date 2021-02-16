@@ -21,4 +21,5 @@ Route::post('book/sort', [App\Http\Controllers\BookController::class, 'sort']);
 Route::resource('book', App\Http\Controllers\BookController::class);
 Route::get('user/api', [App\Http\Controllers\UserController::class, 'api_token']);
 
+Route::post('api_docs/getyajra', [App\Http\Controllers\ApiDocController::class, 'getyajra']);
 Route::resource('api_docs', \App\Http\Controllers\ApiDocController::class);
