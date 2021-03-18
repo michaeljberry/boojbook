@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 | Test GPG Key
+| Test GPG Key
 */
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 Auth::routes();
