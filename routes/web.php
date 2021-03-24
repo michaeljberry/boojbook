@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 | Test GPG Key
 | Test GPG Key
+| Test GPG Key
 */
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 Auth::routes();
